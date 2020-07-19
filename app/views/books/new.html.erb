@@ -1,0 +1,16 @@
+<h1>新規投稿</h1>
+
+<% if @book.errors.any? %>
+  <h2><%= pluralize(@book.errors.count, "error")%> prohibited this product from being saved:</h2>
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<%= form_for(@book) do |f| %>
+  <h4>title</h4>
+  <%= f.text_field :title %>
+  <h4>body</h4>
+  <%= f.text_area :body %>
+  <%= f.submit '投稿' %>
+<% end %>

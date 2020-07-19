@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-3">
+      <%= render 'books/list', user: @user, book: @book %>
+    </div>
+
+    <div class="col-xs-9">
+      <h2>Book detail</h2>
+      <%= link_to (attachment_image_tag @userf, :profile_image, :fill, 100, 100, fallback:"no_image.jpg", size:"50×50"), user_path(@book.user_id) %>
+      <%= link_to @userf.name, user_path(@book.user_id) %>
+      <h4>title</h4>
+      <%= @book.title %>
+      <h4>body</h4>
+      <%= @book.body %>
+
+      <% if user_signed_in? && current_user.id == @book.user_id %>
+        <%= link_to "Edit", edit_book_path(@book.id) %>
+        <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+      <% end %>
+    </div>
+  </div>
+</div>
