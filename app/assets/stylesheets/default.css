@@ -1,0 +1,22 @@
+header {
+	background-color: black;
+}
+
+nav ul li{
+list-style: none;
+display: inline-block;
+}
+
+.nav-left {
+	text-align: left;
+	color: white;
+}
+
+.nav-right {
+	text-align: right;
+	color: #9d9d9d;
+}
+
+.nav-right ul li {
+		margin: 0 10px;
+}
